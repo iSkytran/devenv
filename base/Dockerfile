@@ -17,7 +17,7 @@ USER $USERNAME
 
 # Install basic utilities.
 RUN sudo apt-get update \
-    && sudo apt-get install build-essential curl git vim zsh -y
+    && sudo apt-get install build-essential curl git trash-cli vim zsh -y
 
 # Install oh-my-zsh.
 RUN ZSH="/usr/share/oh-my-zsh" sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended \
