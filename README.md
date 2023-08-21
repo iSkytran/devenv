@@ -28,5 +28,5 @@ docker run -it --name base -v $HOME/code:$HOME/code devenv:base
 ### Running the ROS 2 Image
 
 ```bash
-docker build . -f  Dockerfile.ros2 -t devenv:ros2
+docker run -it --name base -v $HOME/code:$HOME/code devenv:ros2
 ```
