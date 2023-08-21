@@ -21,11 +21,12 @@ RUN sudo apt-get update \
 
 # Install oh-my-zsh.
 RUN ZSH="/usr/share/oh-my-zsh" sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended \
-    && sudo git clone https://github.com/zsh-users/zsh-autosuggestions.git /usr/share/oh-my-zsh/plugins/zsh-autosuggestions \
-    && sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /usr/share/oh-my-zsh/plugins/zsh-syntax-highlighting \
-    && sudo git clone https://github.com/sindresorhus/pure.git /usr/share/oh-my-zsh/pure \
-    && sudo cp /usr/share/oh-my-zsh/pure/pure.zsh /usr/share/zsh/functions/Prompts/prompt_pure_setup \
-    && sudo cp /usr/share/oh-my-zsh/pure/async.zsh /usr/share/zsh/functions/Prompts/async
+    && sudo git clone https://github.com/zsh-users/zsh-autosuggestions.git /usr/share/zsh/plugins/zsh-autosuggestions \
+    && sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /usr/share/zsh/plugins/zsh-syntax-highlighting \
+    && sudo git clone https://github.com/sindresorhus/pure.git /usr/share/zsh/pure \
+    && sudo cp /usr/share/zsh/pure/pure.zsh /usr/share/zsh/functions/Prompts/prompt_pure_setup \
+    && sudo cp /usr/share/zsh/pure/async.zsh /usr/share/zsh/functions/Prompts/async
+SHELL ["/bin/zsh", "-c"]
 
 # Install dotfiles.
 RUN git clone --bare https://github.com/iSkytran/dotfiles.git $HOME/.dotfiles \

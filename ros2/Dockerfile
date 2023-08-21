@@ -1,4 +1,8 @@
 FROM devenv:base
+SHELL ["/bin/zsh", "-c"]
+
+# Environment variables.
+ENV ROS_DISTRO=iron
 
 RUN echo "Etc/UTC" | sudo tee -a /etc/timezone && \
     sudo ln -s /usr/share/zoneinfo/Etc/UTC /etc/localtime && \
@@ -19,6 +23,8 @@ RUN sudo apt-get update \
 RUN sudo apt-get update \
     && sudo apt-get upgrade -y \
     && sudo apt install ros-iron-desktop -y
+RUN sudo rosdep init \
+    && rosdep update
 
 # Source ROS workspace.
 COPY ./ros_entrypoint.sh /
