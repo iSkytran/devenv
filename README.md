@@ -9,13 +9,13 @@ Dockerfiles for Development Environments
 The base image must be built first.
 
 ```bash
-docker build . -f  Dockerfile.base -t devenv:base
+docker build base -t devenv:base
 ```
 
 ### Building the ROS 2 Image
 
 ```bash
-docker build . -f  Dockerfile.base -t devenv:base
+docker build ros2 -t devenv:ros2
 ```
 
 ## Running
