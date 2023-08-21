@@ -21,4 +21,4 @@ RUN sudo apt-get update \
     && sudo apt install ros-iron-desktop -y
 
 # Source ROS workspace.
-ENTRYPOINT ["source", "/opt/ros/iron/setup.zsh"]
+ENTRYPOINT ["zsh", "-c", ". /opt/ros/iron/setup.zsh"]
